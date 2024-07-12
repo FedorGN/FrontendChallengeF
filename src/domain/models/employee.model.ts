@@ -9,10 +9,18 @@ export type EmployeeNameModel = z.infer<typeof EmployeeNameSchema>;
 export const EmployeeSalarySchema = z.number().positive();
 export type EmployeeSalaryModel = z.infer<typeof EmployeeSalarySchema>;
 
-export const EmployeeSchema = z.object({
-  id: EmployeeIdSchema,
+export const EmployeeAgeSchema = z.number().positive();
+export type EmployeeAgeModel = z.infer<typeof EmployeeAgeSchema>
+
+export const EmployeeBaseSchema = z.object({
   employee_name: EmployeeNameSchema,
   employee_salary: EmployeeSalarySchema,
+  employee_age: EmployeeAgeSchema,
+});
+export type EmployeeBaseModel = z.infer<typeof EmployeeBaseSchema>;
+
+export const EmployeeSchema = EmployeeBaseSchema.extend({
+  id: EmployeeIdSchema,
 });
 export type EmployeeModel = z.infer<typeof EmployeeSchema>;
 

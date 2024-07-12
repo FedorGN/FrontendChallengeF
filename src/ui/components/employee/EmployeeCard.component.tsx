@@ -1,18 +1,18 @@
 import EmployeeFormatter from "@/core/formatters/employee.formatter";
 import { EmployeeModel } from "@/domain/models/employee.model";
+import { Card } from "antd";
 import { ReactNode } from "react";
-
 export interface EmployeeCardProps {
   employee: EmployeeModel;
 }
 
 const EmployeeCard = ({ employee }: EmployeeCardProps): ReactNode => {
   return (
-    <div className="w-full shadow bg-slate-500 p-4 flex gap-2">
-      <span>{employee.id}</span>
-      <span>{employee.employee_name}</span>
-      <span>{EmployeeFormatter.formatSalary(employee.employee_salary)}</span>
-    </div>
+    <Card title="General information" style={{ width: 300 }}>
+      <p>Id: {employee.id}</p>
+      <p>Name: {employee.employee_name}</p>
+      <p>Salary: {EmployeeFormatter.formatSalary(employee.employee_salary)}</p>
+    </Card>
   );
 };
 export default EmployeeCard;
