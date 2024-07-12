@@ -3,7 +3,7 @@ import { EmployeeModel } from "@/domain/models/employee.model";
 import {
   DeleteOutlined
 } from '@ant-design/icons';
-import { Button, Form, Modal, notification } from "antd";
+import { Button, Modal, notification } from "antd";
 import { useState } from "react";
 
 export interface ButtonAndModalDeleteEmployeeProps {
@@ -13,7 +13,6 @@ export interface ButtonAndModalDeleteEmployeeProps {
 const ButtonAndModalDeleteEmployee = ({ employee }: ButtonAndModalDeleteEmployeeProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { mutate } = useDeleteEmployee();
-  const [form] = Form.useForm();
 
   const showModal = () => {
     setIsModalOpen(true);
